@@ -8,6 +8,8 @@
 <body>
     <h3> <?php echo $this->session->flashdata('userlogin_failed');?></h3>
     <h3> <?php echo $this->session->flashdata('user_registered');?></h3>
+    <h3> <?php echo $this->session->flashdata('userlogged_out');?></h3>
+    <h3> <?php echo $this->session->flashdata('set_session');?></h3>
     <?php echo validation_errors();?>
     <form action="" method="POST">
     

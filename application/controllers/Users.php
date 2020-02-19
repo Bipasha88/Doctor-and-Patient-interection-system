@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit ('No direct script access allowed');
 
 class Users extends CI_Controller{
 
-    
+    //register
 
     public function register()
     { 
@@ -40,6 +40,8 @@ class Users extends CI_Controller{
        
     }
 
+    //user login
+
     public function login(){
 
         if(isset($_POST['login_user']))
@@ -58,7 +60,7 @@ class Users extends CI_Controller{
              $user_id= $this->User_model->login($email,$password);
 
 
-              if($user_id){
+              if($user_id==true){
               
                 $user_data = array(
                    'user_id' => $user_id,
@@ -68,7 +70,7 @@ class Users extends CI_Controller{
 
                 $this->session->set_userdata($user_data);
 
-
+                
                 $this->session->set_flashdata('user_loggedin', 'You are now log in');
 
                 redirect('dashboard');
@@ -90,11 +92,34 @@ class Users extends CI_Controller{
         $this->load->view('footer');
     }
 
+    //logout
+
+    public function user_logout(){
+      $this->session->unset_userdata('logged_in');
+      $this->session->unset_userdata('email');
+      $this->session->unset_userdata( 'user_id');
+
+      $this->session->set_flashdata('userlogged_out', 'You are now logged out ');
+      redirect('login');
+    }
+
     public function dashboard(){
+
+      if($this->session->userdata('logged_in')){
         $this->load->view('header');
         $this->load->view('dashboard');
         $this->load->view('footer');
+      }
+      else{
+        $this->session->set_flashdata('set_session', 'login first ');
+        redirect('login');
+      }
 
+    }
+    public function menu(){
+      $this->load->view('header');
+        $this->load->view('home/menu');
+        $this->load->view('footer');
     }
 }
 ?>

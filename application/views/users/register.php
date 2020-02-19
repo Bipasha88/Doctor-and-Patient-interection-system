@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+<?php echo $this->session->flashdata('em_exist');?>
 
  <?php echo validation_errors();?>
     <form action="" method="POST">
