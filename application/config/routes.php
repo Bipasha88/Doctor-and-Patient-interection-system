@@ -53,6 +53,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['login'] = 'users/login';
 $route['dashboard'] = 'users/dashboard';
 $route['user_logout'] = 'users/user_logout';
+$route['posts'] = 'posts/index';
+$route['posts/(:any)'] = 'posts/view_post/$1';
 
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
