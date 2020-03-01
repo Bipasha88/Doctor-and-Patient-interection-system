@@ -20,7 +20,13 @@
  <br>
  <p><a href="<?php echo site_url('posts/'. $post['slug']); ?>">Read More</a></p>
 <?php endforeach; ?>
+
+<div class="pagination-link">
+<?php echo $this->pagination->create_links(); ?>
 </div>
+
+</div>
+
 
 </body>
 </html>

@@ -18,8 +18,8 @@
    <div class="container">
      <a class="brand-logo">Logo</a>
      <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="#">Home</a></li>
-      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Doctors
+      <li><a href="<?php echo base_url()?>menu">Home</a></li>
+      <li><a class="dropdown-trigger"  data-target="dropdown1">Doctors
       <i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a href="<?php echo base_url()?>posts">Blogs</a></li>
       <li><a href="<?php echo base_url()?>createposts">Create Post</a></li>

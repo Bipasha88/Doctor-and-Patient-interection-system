@@ -1,9 +1,21 @@
 <?php
 class Posts extends CI_Controller{
-    public function index(){
+    public function index($offset = 0){
+       //pagination config
+        $config['base_url'] = base_url() . 'posts/index/';
+        $config['total_rows'] = $this->db->count_all('posts');
+        $config['per_page'] = 2;
+        $config['uri_segment'] = 3;
+        $config['attributes'] = array('class' => 'pagination-link');
+
+        //pagination initialization
+
+       $this->pagination->initialize($config);
+
+
         $data['title'] = 'Latest Post';
 
-        $data['posts'] = $this->Posts_model->get_posts();
+        $data['posts'] = $this->Posts_model->get_posts(FALSE, $config['per_page'], $offset);
 
         $this->load->view('header');
         $this->load->view('home/menu');
@@ -15,6 +27,8 @@ class Posts extends CI_Controller{
     public function view_post($slug = NULL){
 
         $data['post'] = $this->Posts_model->get_posts($slug);
+        $post_id = $data['post']['id'];
+        $data['comment'] = $this->Comment_model->get_comment($post_id);
 
         if(empty($data['post'])){
             show_404();
@@ -32,6 +46,13 @@ class Posts extends CI_Controller{
     }
 
     public function create(){
+        //check logged in or not
+
+        if(!$this->session->userdata('logged_in')){
+            $this->session->set_flashdata('set_session', 'login first ');
+            redirect('login');
+
+        }
      
         $data['title'] = 'Create Post';
         $this->load->library('form_validation');
@@ -58,6 +79,11 @@ class Posts extends CI_Controller{
     }
 
     public function delete($id){
+        if(!$this->session->userdata('logged_in')){
+            $this->session->set_flashdata('set_session', 'login first ');
+            redirect('login');
+
+        }
         
         $this->Posts_model->delete_post($id);
         redirect('posts');    
@@ -66,6 +92,13 @@ class Posts extends CI_Controller{
     }
 
     public function edit($slug){
+
+        if(!$this->session->userdata('logged_in')){
+            $this->session->set_flashdata('set_session', 'login first ');
+            redirect('login');
+
+        }
+        
         $data['post'] = $this->Posts_model->get_posts($slug);
 
         if(empty($data['post'])){
