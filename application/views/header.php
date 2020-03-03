@@ -18,4 +18,11 @@ $(".dropdown-trigger").dropdown();
         
 })
 </script>
+
+<script>
+$(document).ready(function(){
+    $('select').formSelect();
+  });
+
+</script>
     </body>

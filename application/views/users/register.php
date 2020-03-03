@@ -6,9 +6,22 @@
     <title>Document</title>
 </head>
 <body>
+
+<div class="container">
+
+<div class="row">
+<div class="col s2"></div>
+<div class="col s6">
 <?php echo $this->session->flashdata('em_exist');?>
 
  <?php echo validation_errors();?>
+ <br>
+ <br>
+ <br>
+ <b><p class="blue-text center" style="font-size:30px;">Sign Up</p></b>
+
+
+
     <form action="" method="POST">
     <div>
     <label for="username">Name</label>
@@ -26,18 +39,30 @@
      </div>
 
      
-     <div>
-    <label for="gender">Gender</label>
-     <select name="gender" id="gender">
-     <option value="Male">Male</option>
-     <option value="Female">Female</option>
-     <option value="Other">Other</option>
-     </select>
-     </div>
+     
 
      <div>
-     <button type="submit" name="register">register</button>
+     <label>Gender</label>
+     <br>
+    <select name="gender">
+     
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+    
+  </div>
+  <br>
+
+     <div>
+     <button type="submit" name="register" class="waves-effect waves-ligh btn-small green center">register as patient</button>
      </div>
     </form>
+
+    </div>
+    </div>
+    </div>
+
+    
 </body>
 </html>

@@ -23,6 +23,7 @@
       <i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a href="<?php echo base_url()?>posts">Blogs</a></li>
       <li><a href="<?php echo base_url()?>createposts">Create Post</a></li>
+      <li><a href="<?php echo base_url()?>dashboard">My Account</a></li>
       <li><a href="<?php echo base_url()?>user_logout">Logout</a></li>
      </ul>
      </div>
