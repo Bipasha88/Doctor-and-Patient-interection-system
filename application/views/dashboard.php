@@ -12,8 +12,8 @@
 
      <p> <?php echo $this->session->flashdata('user_loggedin');?></p>
     <p> <?php echo $this->session->flashdata('upload_message');?></p>
-
-    <b><p>User Profile</p></b>
+    <br>
+    <b><p>  User Profile</p></b>
 
     <div class="row">
 
@@ -42,7 +42,7 @@
     <br>
 
     <?php echo anchor('', 'Edit Profile') ?> <br>
-    <?php echo anchor('', 'Change Password') ?>
+    <?php echo anchor('users/changepassword', 'Change Password') ?>
     
     </div>
 

@@ -185,19 +185,67 @@ class Users extends CI_Controller{
                         $this->session->set_flashdata('upload_message', 'Upload Successfully');
 
                         redirect('dashboard');
-                }
-
-
-        
-
-
-       
+                } 
       }
       else{
         $this->session->set_flashdata('set_session', 'login first ');
         redirect('login');
       }
 
+
+    }
+
+    // change password
+
+    public function changepassword(){
+
+      if($this->session->userdata('logged_in')){
+
+        $data['title'] = 'Change Password';
+
+        $this->form_validation->set_rules('oldpass', 'Old Password', 'callback_password_check');
+        $this->form_validation->set_rules('newpass', 'New Password', 'required');
+        $this->form_validation->set_rules('confpass', 'Confirm Password', 'required|matches[newpass]');
+
+        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+
+        if($this->form_validation->run()== false){
+
+                        $this->load->view('header');
+                        $this->load->view('home/menu');
+                        $this->load->view('users/change_password', $data);
+                        $this->load->view('footer');
+
+        }
+        else{
+          $email = $this->session->userdata('email');
+
+          $newpass = $this->input->post('newpass');
+
+          $this->User_model->update($email, array('password' => md5($newpass)));
+
+          redirect('user_logout');
+
+
+        }
+
+      }
+      else{
+        $this->session->set_flashdata('set_session', 'login first ');
+        redirect('login');
+      }
+    }
+
+    public function password_check($oldpass){
+      $email = $this->session->userdata('email');
+      $user = $this->User_model->get_user($email);
+
+      if($user->password != md5($oldpass)){
+        $this->form_validation->set_message('password_check', 'The {field} does not match');
+        return false;
+      }
+
+      return true;
 
     }
 }

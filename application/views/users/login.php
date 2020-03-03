@@ -6,10 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-    <h3> <?php echo $this->session->flashdata('userlogin_failed');?></h3>
-    <h3> <?php echo $this->session->flashdata('user_registered');?></h3>
-    <h3> <?php echo $this->session->flashdata('userlogged_out');?></h3>
-    <h3> <?php echo $this->session->flashdata('set_session');?></h3>
+
+<div class="container">
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="row">
+<div class="col s3"> </div>
+
+<div class="col s5">
+    <p class="red-text"> <?php echo $this->session->flashdata('userlogin_failed');?></p>
+    <p class="red-text"> <?php echo $this->session->flashdata('user_registered');?></p>
+    <p class="red-text"> <?php echo $this->session->flashdata('userlogged_out');?></p>
+    <p class="red-text"> <?php echo $this->session->flashdata('set_session');?></p>
+
+   <b> <p class="blue-text center">Log In</p><b>
     <?php echo validation_errors();?>
     <form action="" method="POST">
     
@@ -26,8 +39,14 @@
 
 
      <div>
-     <button type="submit" name="login_user">Login as Patient</button>
+     <button type="submit" name="login_user" class="waves-effect waves-ligh btn-small green">Login as Patient</button>
      </div>
     </form>
+
+    </div>
+
+    </div>
+
+    </div>
 </body>
 </html>
