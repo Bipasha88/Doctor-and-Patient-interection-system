@@ -103,11 +103,20 @@ class Users extends CI_Controller{
       redirect('login');
     }
 
+    // create profile
+
     public function dashboard(){
 
       if($this->session->userdata('logged_in')){
+
+        $user_email = $this->session->userdata('email');
+
+        $data['user'] = $this->User_model->get_user($user_email);
+
+
         $this->load->view('header');
-        $this->load->view('dashboard');
+        $this->load->view('home/menu');
+        $this->load->view('dashboard', $data);
         $this->load->view('footer');
       }
       else{
@@ -120,6 +129,76 @@ class Users extends CI_Controller{
       $this->load->view('header');
         $this->load->view('home/menu');
         $this->load->view('footer');
+    }
+
+    // upload profile photo
+
+    public function upload(){
+
+      if($this->session->userdata('logged_in')){
+
+        $data['title'] = 'Upload Profile Picture';
+
+                $config['upload_path']          = './uploads/';
+                $config['allowed_types']        = 'gif|jpg|jpeg|png';
+                $config['max_size']             = 11000;
+                
+
+                $this->load->library('upload', $config);
+
+                $data['error'] ="";
+
+                if ( ! $this->upload->do_upload('userfile'))
+                {
+
+                  if(isset($_FILES['userfile'])){
+                       $data['error'] =$this->upload->display_errors();
+                  }
+
+                        $this->load->view('header');
+                        $this->load->view('home/menu');
+                        $this->load->view('users/upload', $data);
+                        $this->load->view('footer');
+                }
+                else
+                {
+
+                  $email = $this->session->userdata('email');
+
+
+                  $user = $this->User_model->get_user($email);
+
+                  if($user->photo && file_exists('uploads/'.$user->photo)){
+
+                    unlink('uploads/'.$user->photo);
+                  }
+                        $uploaddata = $this->upload->data();
+
+                        $filename = $uploaddata['file_name'];
+
+                        $user_data = array(
+                          'photo' => $filename
+                        );
+
+                        $this->User_model->update($email,$user_data);
+
+                        $this->session->set_flashdata('upload_message', 'Upload Successfully');
+
+                        redirect('dashboard');
+                }
+
+
+        
+
+
+       
+      }
+      else{
+        $this->session->set_flashdata('set_session', 'login first ');
+        redirect('login');
+      }
+
+
     }
 }
 ?>

@@ -56,6 +56,21 @@ class User_model extends CI_Model
        }
 
    }
+
+   // create profile
+
+   public function get_user($email){
+       $this->db->where('email', $email);
+       $query = $this->db->get('info');
+       return $query->row();
+   }
+
+   // profile photo upload
+
+   public function update($email,$user_data){
+       $this->db->where('email', $email);
+       $this->db->update('info', $user_data);
+   }
 }
 
 ?>
