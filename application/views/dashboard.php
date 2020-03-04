@@ -33,6 +33,18 @@
     <td><b>Gender</b></td>
     <td><?php echo $user->gender ?></td>
     </tr>
+
+    <td><b>Age</b></td>
+    <td><?php echo $user->age ?></td>
+    </tr>
+
+    <td><b>Live in</b></td>
+    <td><?php echo $user->home ?></td>
+    </tr>
+
+    <td><b>Contact No</b></td>
+    <td><?php echo $user->num ?></td>
+    </tr>
     
     </table>
     
@@ -41,7 +53,7 @@
     <div class="userlinks">
     <br>
 
-    <?php echo anchor('', 'Edit Profile') ?> <br>
+    <?php echo anchor('users/editprofile', 'Edit Profile') ?> <br>
     <?php echo anchor('users/changepassword', 'Change Password') ?>
     
     </div>

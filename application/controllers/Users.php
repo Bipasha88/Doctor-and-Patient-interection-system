@@ -248,5 +248,49 @@ class Users extends CI_Controller{
       return true;
 
     }
+
+    public function editprofile(){
+
+      if($this->session->userdata('logged_in')){
+
+        $data['title'] = 'Edit Profile';
+
+        $this->form_validation->set_rules('name', 'User Name', 'required');
+        $this->form_validation->set_rules('age', 'Age', 'required');
+
+        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+
+        if($this->form_validation->run()== false){
+
+                        $this->load->view('header');
+                        $this->load->view('home/menu');
+                        $this->load->view('users/edit_profile', $data);
+                        $this->load->view('footer');
+
+        }
+        else{
+          $email = $this->session->userdata('email');
+
+          $name = $this->input->post('name');
+          $age = $this->input->post('age');
+          $num = $this->input->post('num');
+          $home = $this->input->post('home');
+
+          $this->User_model->update($email, array('name' => $name, 'age' => $age, 'num' => $num, 'home' => $home ));
+
+          redirect('dashboard');
+        }
+
+      }
+
+      else{
+        $this->session->set_flashdata('set_session', 'login first ');
+        redirect('login');
+      }
+
+      
+
+
+    }
 }
 ?>
