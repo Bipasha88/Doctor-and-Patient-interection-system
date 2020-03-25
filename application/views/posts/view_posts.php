@@ -7,24 +7,26 @@
     <title>Document</title>
 </head>
 <body>
-<h2><?php echo $post['title']; ?></h2>
+<div class="container">
+<b><p><?php echo $post['title']; ?></p></b>
 <small>Posted on: <?php echo $post['create_at'];?></small>
 <div><?php echo $post['body'];?></div>
 
 <?php if($this->session->userdata('email') == $post['user_email']): ?>
 
-<hr>
-<a href="<?php echo base_url(); ?>posts/edit/<?php echo $post['slug']; ?>">Edit</a>
+<br>
+<a class="btn blue" href="<?php echo base_url(); ?>posts/edit/<?php echo $post['slug']; ?>">Edit</a>
+<br>
 <br>
 
 <?php echo form_open('posts/delete/'.$post['id']); ?>
-<button type="submit" name="delete">Delete</button>
+<button class="btn red" type="submit" name="delete">Delete</button>
 </form>
 
 <?php endif; ?>
 
-<hr>
-<h2>Comments</h2>
+<br>
+<p class="blue-text">Comments</p>
 
 <?php if($comment) : ?>
 
@@ -37,10 +39,14 @@
 <p>No comment to display.</p>
 <?php endif;  ?>
 
-<hr>
+<br>
 
 <?php echo validation_errors(); ?>
-<h2>Add Comment</h2>
+
+<p class="blue-text">Add Comment</p>
+
+<div class="row">
+<div class="col s6">
 <?php echo form_open('comment/create/'.$post['id']); ?>
 
 <div>
@@ -54,7 +60,12 @@
 </div>
 
 <input type="hidden" name="slug" value="<?php echo $post['slug'];?>">
-<button type="submit">Comment</button>
+<br>
+<button type="submit" class="btn">Comment</button>
 </form>
+</div>
+</div>
+
+</div>
 </body>
 </html>

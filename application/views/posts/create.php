@@ -26,7 +26,9 @@
 
      <div>
     <label for="body">Write Post</label>
-     <textarea name="body"></textarea>
+     <textarea name="body" ></textarea>
+
+    
      </div>
      <br>
 

@@ -8,29 +8,42 @@
 <body> 
 
 <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">Heart Specialist</a></li>
-  <li><a href="#!">Eye Specialist</a></li>
-  <li><a href="#!">Medicine Specialist</a></li>
+  <li><a href="<?php echo base_url()?>heartdoctor">Heart Specialist</a></li>
+  <li><a href="<?php echo base_url()?>eyedoctor">Eye Specialist</a></li>
+  <li><a href="<?php echo base_url()?>medicindoctor">Medicine Specialist</a></li>
 </ul>
-
+<div class="navbar-fixed">
   <nav>
-   <div class="nav-wrapper blue lighten-2">
+   <div class="nav-wrapper blue lighten-2 navbar-fixed">
    <div class="container">
      <a class="brand-logo">Logo</a>
      <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="<?php echo base_url()?>menu">Home</a></li>
+      <li><a href="<?php echo base_url()?>dashboard1">Home</a></li>
       <li><a class="dropdown-trigger"  data-target="dropdown1">Doctors
       <i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a href="<?php echo base_url()?>posts">Blogs</a></li>
+      
       <li><a href="<?php echo base_url()?>createposts">Create Post</a></li>
+
+      <?php if($this->session->userdata('logged_in')): ?>
       <li><a href="<?php echo base_url()?>dashboard">My Account</a></li>
+      <?php endif; ?>
+
+      <?php if(!$this->session->userdata('logged_in')): ?>
+      <li><a href="<?php echo base_url()?>dashboard2">My Account</a></li>
+      <?php endif; ?>
+      
+      
       <li><a href="<?php echo base_url()?>user_logout">Logout</a></li>
      </ul>
      </div>
    </div>
   
   </nav>
+      </div>
+  
 
+ 
   
   
 </body>

@@ -22,6 +22,30 @@
      public function create_post(){
 
         $slug = url_title($this->input->post('title'));
+        $email=$this->session->userdata('email');
+
+        if($this->session->userdata('logged_in')){
+         $query=$this->db->select('name')
+                ->where('email', $email)
+                ->get('info');
+
+        
+        $row = $query->row();
+    
+        $user_name= $row->name;
+        }
+        if($this->session->userdata('doctor_logged_in')){
+            $query=$this->db->select('name')
+                ->where('email', $email)
+                ->get('doctor_info');
+
+        
+        $row = $query->row();
+    
+        $user_name= $row->name;
+
+        }
+        
 
         $data =array(
             
@@ -29,7 +53,9 @@
             'title' => $this->input->post('title'),
             'slug' => $slug,
             'body' => $this->input->post('body'),
-            'user_email' => $this->session->userdata('email')
+
+            'user_email' => $this->session->userdata('email'),
+            'user_name' => $user_name
 
         );
 

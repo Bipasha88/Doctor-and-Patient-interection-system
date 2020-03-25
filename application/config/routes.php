@@ -50,12 +50,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
+
+$route['doctors/(:any)'] = 'doctors/view/$1';
+$route['eyedoctor'] = 'doctors/eyedoctor';
+$route['heartdoctor'] = 'doctors/heartdoctor';
+$route['medicindoctor'] = 'doctors/medicindoctor';
 $route['edit_profile'] = 'users/editprofile';
 $route['change_password'] = 'users/changepassword';
 $route['posts/index'] = 'posts/index';
 $route['posts/update'] = 'posts/update';
 $route['login'] = 'users/login';
+$route['dashboard2'] = 'doctors/dashboard';
 $route['dashboard'] = 'users/dashboard';
+$route['dashboard1'] = 'users/dashboard1';
 $route['user_logout'] = 'users/user_logout';
 
 
@@ -65,6 +72,7 @@ $route['menu'] = 'users/menu';
 $route['createposts'] = 'posts/create';
 
 $route['edit'] = 'posts/edit';
+
 $route['posts/(:any)'] = 'posts/view_post/$1';
 
 $route['default_controller'] = 'welcome';

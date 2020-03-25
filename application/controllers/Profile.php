@@ -20,7 +20,7 @@ public function show(){
 public function create(){
     //check logged in or not
 
-    if(!$this->session->userdata('logged_in')){
+    if(!$this->session->userdata('logged_in')|| !$this->session->userdata('doctor_logged_in')){
         $this->session->set_flashdata('set_session', 'login first ');
         redirect('login');
 

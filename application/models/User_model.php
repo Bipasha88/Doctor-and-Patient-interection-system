@@ -57,6 +57,8 @@ class User_model extends CI_Model
 
    }
 
+  
+
    // create profile
 
    public function get_user($email){

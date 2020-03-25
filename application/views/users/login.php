@@ -28,7 +28,7 @@
     
 
      <div>
-    <label for="email">Email Address</label>
+    <label for="email">Email Address or Licence Number(doctor)</label>
      <input type="text" name="email" id="email">
      </div>
 
@@ -40,6 +40,11 @@
 
      <div>
      <button type="submit" name="login_user" class="waves-effect waves-ligh btn-small green">Login as Patient</button>
+     </div>
+
+     <br>
+     <div>
+     <button type="submit" name="login_doctor" class="waves-effect waves-ligh btn-small blue">Login as doctor</button>
      </div>
     </form>
 

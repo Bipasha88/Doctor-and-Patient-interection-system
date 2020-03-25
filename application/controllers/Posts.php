@@ -47,13 +47,10 @@ class Posts extends CI_Controller{
 
     public function create(){
         //check logged in or not
+        if($this->session->userdata('doctor_logged_in') || $this->session->userdata('logged_in')){
+       
 
-        if(!$this->session->userdata('logged_in')){
-            $this->session->set_flashdata('set_session', 'login first ');
-            redirect('login');
-
-        }
-     
+        
         $data['title'] = 'Create Post';
         $this->load->library('form_validation');
 
@@ -77,28 +74,32 @@ class Posts extends CI_Controller{
         $this->load->view('footer');
 
     }
+    else{
+        $this->session->set_flashdata('set_session', 'login first ');
+        redirect('login');
+      }
+
+    }
 
     public function delete($id){
-        if(!$this->session->userdata('logged_in')){
-            $this->session->set_flashdata('set_session', 'login first ');
-            redirect('login');
-
-        }
+        if($this->session->userdata('doctor_logged_in') || $this->session->userdata('logged_in')){
+            
         
         $this->Posts_model->delete_post($id);
-        redirect('posts');    
+        redirect('posts');
+        } 
+        else{
+            $this->session->set_flashdata('set_session', 'login first ');
+            redirect('login');
+          }   
         
 
     }
 
     public function edit($slug){
 
-        if(!$this->session->userdata('logged_in')){
-            $this->session->set_flashdata('set_session', 'login first ');
-            redirect('login');
-
-        }
-        
+        if($this->session->userdata('doctor_logged_in') || $this->session->userdata('logged_in')){
+           
         $data['post'] = $this->Posts_model->get_posts($slug);
 
         if(empty($data['post'])){
@@ -111,6 +112,12 @@ class Posts extends CI_Controller{
         $this->load->view('home/menu');
         $this->load->view('posts/edit', $data);
         $this->load->view('footer');
+    }
+
+    else{
+        $this->session->set_flashdata('set_session', 'login first ');
+        redirect('login');
+      } 
     }
 
     public function update(){
