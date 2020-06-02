@@ -21,7 +21,7 @@
     <?php }?>
          </div>
            <br>
-         <div class=><a href="<?php echo base_url('doctors/'.$doctor['licence']); ?>"  class="blue-text" style="font-size:20px;"> <?php echo $doctor['name']; ?></a> 
+         <div class=><a href="<?php echo base_url('doctor2/'.$doctor['licence']); ?>"  class="blue-text" style="font-size:20px;"> <?php echo $doctor['name']; ?></a> 
         <p><?php echo $doctor['designation']; ?> </p>
         </div>
         </div>

@@ -17,9 +17,7 @@
 
 
  <?php echo validation_errors();?>
- <br>
- <br>
- <br>
+ 
  <b><p class="blue-text center" style="font-size:30px;">Sign Up</p></b>
 
 
@@ -27,12 +25,12 @@
     <form action="" method="POST">
     <div>
     <label for="username">Name</label>
-     <input type="text" name="name" id="username">
+     <input type="text" name="name" id="username" placeholder="Gmail User Name" class="dark-blue-text">
      </div>
 
      <div>
     <label for="email">Email Address</label>
-     <input type="text" name="email" id="email">
+     <input type="text" name="email" id="email" placeholder="Gmail Address">
      </div>
 
      <div>

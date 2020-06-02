@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="<?php echo base_url()?>materialize/css/materialize.css">
     <link rel="stylesheet" href="<?php echo base_url()?>style.css">
+    <script src="<?php echo base_url()?>ckeditor\ckeditor.js" type="text/javascript" > </script>
 </head>
 <body>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -43,6 +44,8 @@ $(document).ready(function(){
     
   });
 </script>
+
+
 
 
     </body>

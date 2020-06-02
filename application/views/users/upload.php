@@ -21,6 +21,8 @@
      <?php echo $error; ?>
      </div>
 
+     <p class="purple-text">Use Gmail Profile Photo</p>
+
      <div>
      <button type="submit" name="submit" value="Upload" class="waves-effect waves-ligh btn-small green">upload photo</button>
      </div>

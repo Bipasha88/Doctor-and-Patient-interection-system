@@ -12,9 +12,9 @@
 
 <li>
 <img  src="<?php echo base_url('assets/img/slid1.jpg')?>" alt="" >
-<div class="caption left-align">
+<div class="caption right-align">
 <h3 class="blue-text">Welcome to Doctor's Consultation System</h3>
-<h5 class="light blue-text text-lighten-3">Feel free to discuss your problems with doctors</h5>
+<h5 class="light dark-blue-text text-lighten-3">Feel free to discuss your problems with doctors</h5>
 
 </div>
 </li>

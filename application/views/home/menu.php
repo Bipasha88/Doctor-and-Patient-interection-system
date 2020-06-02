@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style type="text/css">
+
+</style>
 <body> 
 
 <ul id="dropdown1" class="dropdown-content">
@@ -18,9 +21,15 @@
    <div class="container">
      <a class="brand-logo">Logo</a>
      <ul id="nav-mobile" class="right hide-on-med-and-down">
+
       <li><a href="<?php echo base_url()?>dashboard1">Home</a></li>
+
+      <?php if(!$this->session->userdata('doctor_logged_in')): ?>
       <li><a class="dropdown-trigger"  data-target="dropdown1">Doctors
       <i class="material-icons right">arrow_drop_down</i></a></li>
+      <?php endif; ?>
+
+
       <li><a href="<?php echo base_url()?>posts">Blogs</a></li>
       
       <li><a href="<?php echo base_url()?>createposts">Create Post</a></li>
@@ -33,8 +42,13 @@
       <li><a href="<?php echo base_url()?>dashboard2">My Account</a></li>
       <?php endif; ?>
       
+      <li><a href="<?php echo base_url()?>google_login/login">Chat</a></li>
+     
+      <li><a href="<?php echo base_url()?>google_login/logout">Logout</a></li>
+     
+
       
-      <li><a href="<?php echo base_url()?>user_logout">Logout</a></li>
+
      </ul>
      </div>
    </div>

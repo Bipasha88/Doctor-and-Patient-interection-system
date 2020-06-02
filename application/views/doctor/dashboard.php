@@ -81,7 +81,7 @@
 
       
     </div>
-    <a href="<?php echo site_url('doctors/upload')?>" class="waves-effect waves-ligh btn-small green">Upload Image</a>
+    <a href="<?php echo site_url('doctor3/upload')?>" class="waves-effect waves-ligh btn-small green">Upload Image</a>
     
     </div>
     

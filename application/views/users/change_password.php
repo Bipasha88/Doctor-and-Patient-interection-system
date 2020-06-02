@@ -6,9 +6,12 @@
     <title>Document</title>
 </head>
 <body>
+<br>
+<br>
 <div class="container">
-<h2><?= $title ?></h2>
+<b><p class="blue-text center" style="font-size:20px;"><?= $title ?></p></b>
 <div class="row">
+<div class="col s3"></div>
 <div class="col s6">
 
 
@@ -18,19 +21,19 @@
      <div>
     <label for="">Old Password</label>
      <input type="password" name="oldpass" >
-     <?php echo form_error('oldpass', '<div class="error">', '</div>')?>
+     <?php echo form_error('oldpass', '<div class="error red-text">', '</div>')?>
      </div>
 
      <div>
     <label >New Password</label>
     <input type="password" name="newpass">
-    <?php echo form_error('newpass', '<div class="error">', '</div>')?>
+    <?php echo form_error('newpass', '<div class="error red-text">', '</div>')?>
      </div>
 
      <div>
     <label >Confirm Password</label>
     <input type="password" name="confpass">
-    <?php echo form_error('confpass', '<div class="error">', '</div>')?>
+    <?php echo form_error('confpass', '<div class="error red-text">', '</div>')?>
      </div>
 
 
@@ -38,7 +41,7 @@
 
 
      <div>
-     <button type="submit" class="waves-effect waves-ligh btn-small blue">Change Password</button>
+     <button type="submit" class="waves-effect waves-ligh btn-small green">Change Password</button>
      </div>
     </form>
     </div>

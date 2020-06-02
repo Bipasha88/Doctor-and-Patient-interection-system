@@ -26,7 +26,7 @@
 
      <div>
     <label for="body">Write Post</label>
-     <textarea name="body" ></textarea>
+     <textarea class="ckeditor" name="body" ></textarea>
 
     
      </div>

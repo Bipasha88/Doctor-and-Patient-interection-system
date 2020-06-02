@@ -36,6 +36,7 @@
     <label for="password">Password</label>
      <input type="password" name="password" id="password">
      </div>
+     <br>
 
 
      <div>
@@ -45,6 +46,10 @@
      <br>
      <div>
      <button type="submit" name="login_doctor" class="waves-effect waves-ligh btn-small blue">Login as doctor</button>
+     </div>
+
+     <div>
+     <a class="right light blue-text" href="<?php echo base_url()?>register">Register Here</a>
      </div>
     </form>
 

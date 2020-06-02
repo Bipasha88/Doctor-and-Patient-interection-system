@@ -53,8 +53,8 @@
     <div class="userlinks">
     <br>
 
-    <?php echo anchor('users/editprofile', 'Edit Profile') ?> <br>
-    <?php echo anchor('users/changepassword', 'Change Password') ?>
+    <?php echo anchor('editprofile', 'Edit Profile') ?> <br>
+    <?php echo anchor('changepassword', 'Change Password') ?>
     
     </div>
 

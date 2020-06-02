@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
+<br>
+<br>
+
 <div class="container">
 <b><p class="blue-text center" style="font-size:20px;"><?= $title ?></p></b>
 <div class="row">

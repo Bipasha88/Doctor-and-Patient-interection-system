@@ -106,7 +106,7 @@ class Users extends CI_Controller{
                 
                 $this->session->set_flashdata('user_loggedin', 'You are now log in');
 
-                redirect('dashboard');
+                redirect('dashboard1');
               }
               else{
                 $this->session->set_flashdata('userlogin_failed', 'Worng email or password');
@@ -156,7 +156,7 @@ class Users extends CI_Controller{
                 
                 $this->session->set_flashdata('user_loggedin', 'You are now log in');
 
-                redirect('dashboard2');
+                redirect('dashboard1');
               }
               else{
                 $this->session->set_flashdata('userlogin_failed', 'Worng email or password');
@@ -287,6 +287,7 @@ class Users extends CI_Controller{
       if($this->session->userdata('logged_in')){
 
         $data['title'] = 'Change Password';
+        
 
         $this->form_validation->set_rules('oldpass', 'Old Password', 'callback_password_check');
         $this->form_validation->set_rules('newpass', 'New Password', 'required');
@@ -392,6 +393,8 @@ class Users extends CI_Controller{
           $this->load->view('footer');
 
         }
+
+        
 
        
 

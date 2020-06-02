@@ -18,7 +18,7 @@
  <br>
  <br>
  <br>
- <b><p class="blue-text center" style="font-size:30px;">Sign Up</p></b>
+ <b><p class="blue-text center" style="font-size:30px;">Edit Profile</p></b>
 
 
 

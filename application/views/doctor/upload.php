@@ -13,13 +13,15 @@
     <div class="col s6">
     <p><?= $title ?></p>
     
-    <?php echo form_open_multipart('doctors/upload');?>
+    <?php echo form_open_multipart('doctor3/upload');?>
 
     <div>
     <br>
      <input type="file" name="userfile" ?>">
      <?php echo $error; ?>
      </div>
+
+     <p class="purple-text">Use Gmail Profile Photo</p>
 
      <div>
      <button type="submit" name="submit" value="Upload" class="waves-effect waves-ligh btn-small green">upload photo</button>

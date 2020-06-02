@@ -23,7 +23,7 @@
 
      <div>
     <label for="body">Write Post</label>
-     <textarea name="body" ><?php echo $post['body']; ?></textarea>
+     <textarea class="ckeditor" name="body" ><?php echo $post['body']; ?></textarea>
      </div>
      <br>
 
